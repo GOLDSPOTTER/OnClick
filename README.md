@@ -10,7 +10,11 @@ public class OnClick : MonoBehaviour
     public void OnMouseDown()
     {
         Debug.Log("Teleporting player!");
-        Player.transform.position = Origin.transform.position;
+        GameObject Camera = GameObject.Find("FallbackObjects");
+        if (Camera != null)
+        {
+            Player.transform.position = Origin.transform.position;
+            Camera.transform.localPosition = new Vector3(0, 1.75f ,0);
+        }
     }
 }
-
